@@ -1,8 +1,7 @@
 import { RubyApplication } from 'bormashino'
-import rubyDigest from './ruby-digest.js'
 
 const main = async () => {
-  const vm = await RubyApplication.initVm('/ruby.' + rubyDigest + '.wasm', [
+  const vm = await RubyApplication.initVm('/ruby.wasm', [
     'ruby.wasm',
     '-I/stub',
     '-I/gem/lib',
