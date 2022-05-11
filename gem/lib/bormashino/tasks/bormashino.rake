@@ -40,7 +40,7 @@ namespace :bormashino do
 
   desc 'pack済みのruby.wasmのMD5を取りファイル名につけてコピーし、import用のJSを出力する'
   task :digest, [:destination] do |_, args|
-    digest = `md5 tmp/ruby.wasm`.split.first
+    digest = `md5 tmp/ruby.wasm`.split.last
     FileUtils.cp('tmp/ruby.wasm', "#{args[:destination]}/ruby.#{digest}.wasm")
     File.open(DIGEST, 'w') { |f|
       f.puts "export default rubyDigest = '#{digest}'
